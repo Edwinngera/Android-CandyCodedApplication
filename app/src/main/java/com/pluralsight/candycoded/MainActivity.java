@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     final CandyCursorAdapter adapter = new CandyCursorAdapter(this, cursor);
     ListView listView = (ListView)this.findViewById(R.id.list_view_candy);
+
+
+
+
 
     listView.setAdapter(adapter);
 
@@ -95,5 +100,15 @@ public class MainActivity extends AppCompatActivity {
 
       db.insert(CandyContract.CandyEntry.TABLE_NAME, null, values);
     }
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item)
+  {
+
+    Intent infoIntent=new Intent(this,InfoActivity.class);
+    startActivity(infoIntent);
+    return super.onOptionsItemSelected(item);
+
   }
 }
